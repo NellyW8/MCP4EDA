@@ -4,7 +4,7 @@ A comprehensive Model Context Protocol (MCP) server that provides Electronic Des
 
 ## Demo
 
-[![Demo](asssets/cover.png)](https://github.com/NellyW8/mcp-EDA/assets/MCP_demo2.mp4)
+[![Demo](asssets/cover.png)]([https://github.com/NellyW8/mcp-EDA/assets/MCP_demo2.mp4](https://github.com/NellyW8/mcp-EDA/blob/main/assets/MCP_demo2.mp4))
 ## Features
 
 - **Verilog Synthesis**: Synthesize Verilog code using Yosys for various FPGA targets (generic, ice40, xilinx)
