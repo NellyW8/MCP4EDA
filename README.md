@@ -175,8 +175,8 @@ sudo apt install klayout
 ### 1. Clone and Build the MCP Server
 
 ```bash
-git clone <your-repo-url>
-cd eda-mcp-server
+git clone https://github.com/NellyW8/mcp-EDA
+cd mcp-EDA
 npm install
 npm run build
 npx tsc   
@@ -185,7 +185,7 @@ npx tsc
 ### 2. Project Structure
 
 ```
-eda-mcp-server/
+mcp-EDA/
 ├── src/
 │   └── index.ts          # Main server code
 ├── build/
