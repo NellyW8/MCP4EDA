@@ -4,8 +4,6 @@ A comprehensive Model Context Protocol (MCP) server that provides Electronic Des
 
 ## Demo
 
-## Demo
-
 https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6
 
 *EDA MCP Server demonstration showing Verilog synthesis, simulation, and ASIC design flow*
