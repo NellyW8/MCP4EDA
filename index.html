@@ -188,7 +188,7 @@
             transform: translateY(-2px);
         }
 
-        /* Demo Video */
+        /* Demo Video - FIXED */
         .demo-video {
             margin: 3rem 0;
             max-width: 900px;
@@ -211,23 +211,16 @@
             height: auto;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: block;
+            position: relative;
+            z-index: 10;
         }
 
-        .video-overlay {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            right: 1.5rem;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
+        /* Removed the problematic hover overlay that was blocking video interaction */
+        .video-info {
+            margin-top: 1rem;
+            text-align: center;
             padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .video-container:hover .video-overlay {
-            transform: translateY(0);
         }
 
         .video-title {
@@ -241,6 +234,8 @@
             font-size: 0.9rem;
             color: var(--text-gray);
         }
+
+        /* Stats */
         .stats {
             display: flex;
             gap: 2rem;
@@ -420,7 +415,7 @@
 
         .code-header {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
@@ -568,12 +563,18 @@
 
                 <div class="demo-video">
                     <div class="video-container">
-                        <video controls poster="" preload="metadata">
+                        <video controls preload="auto" width="100%" style="max-width: 100%;">
                             <source src="https://github.com/NellyW8/mcp-EDA/raw/main/MCP_demo2.mp4" type="video/mp4">
+                            <source src="https://raw.githubusercontent.com/NellyW8/mcp-EDA/main/MCP_demo2.mp4" type="video/mp4">
                             Your browser does not support the video tag.
-                            <a href="https://github.com/NellyW8/mcp-EDA/blob/main/MCP_demo2.mp4">View Demo Video</a>
+                            <p>
+                                <a href="https://github.com/NellyW8/mcp-EDA/blob/main/MCP_demo2.mp4" target="_blank" rel="noopener">
+                                    View Demo Video on GitHub
+                                </a>
+                            </p>
                         </video>
-                        <div class="video-overlay">
+                        
+                        <div class="video-info">
                             <div class="video-title">MCP-EDA Server Demonstration</div>
                             <div class="video-subtitle">Verilog synthesis, simulation, and ASIC design flow</div>
                         </div>
