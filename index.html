@@ -188,7 +188,7 @@
             transform: translateY(-2px);
         }
 
-        /* Demo Video - Updated with Placeholder */
+        /* Demo Video - Back to Embedded */
         .demo-video {
             margin: 3rem 0;
             max-width: 900px;
@@ -206,106 +206,14 @@
             overflow: hidden;
         }
 
-        .video-placeholder {
-            position: relative;
+        .video-container video {
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.2));
+            height: auto;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .video-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .video-placeholder:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
-        }
-
-        .play-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: var(--primary-color);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .video-placeholder:hover .play-button {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 1);
-        }
-
-        .video-preview {
-            text-align: center;
-            padding: 2rem;
-            z-index: 2;
+            display: block;
             position: relative;
-        }
-
-        .video-preview h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .video-preview p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-        }
-
-        .video-features {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .feature-tag {
-            background: rgba(79, 70, 229, 0.2);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(79, 70, 229, 0.3);
-        }
-
-        .watch-link {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            z-index: 10;
         }
         .video-info {
             margin-top: 1rem;
@@ -653,28 +561,19 @@
 
                 <div class="demo-video">
                     <div class="video-container">
-                        <!-- Video placeholder with link to GitHub -->
-                        <div class="video-placeholder" onclick="openVideo()">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-preview">
-                                <h3>🎥 MCP-EDA Server Demonstration</h3>
-                                <p>Watch how to synthesize Verilog, run simulations, and execute complete ASIC design flows using natural language with AI assistants.</p>
-                                <div class="video-features">
-                                    <span class="feature-tag">📹 Full Demo</span>
-                                    <span class="feature-tag">⚡ Live Synthesis</span>
-                                    <span class="feature-tag">🔧 ASIC Flow</span>
-                                </div>
-                                <div class="watch-link">
-                                    <strong>Click to watch on GitHub →</strong>
-                                </div>
-                            </div>
-                        </div>
+                        <video controls preload="auto" width="100%" style="max-width: 100%;">
+                            <source src="https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6" type="video/mp4">
+                            Your browser does not support the video tag.
+                            <p>
+                                <a href="https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6" target="_blank" rel="noopener">
+                                    View Demo Video
+                                </a>
+                            </p>
+                        </video>
                         
                         <div class="video-info">
-                            <div class="video-title">Interactive EDA Workflow Demo</div>
-                            <div class="video-subtitle">See Verilog synthesis, simulation, and ASIC design flow in action</div>
+                            <div class="video-title">MCP-EDA Server Demonstration</div>
+                            <div class="video-subtitle">Verilog synthesis, simulation, and ASIC design flow</div>
                         </div>
                     </div>
                 </div>
