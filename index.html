@@ -204,7 +204,6 @@
             border-radius: 20px;
             padding: 1.5rem;
             overflow: hidden;
-            min-height: 400px; /* Ensure container has height for poster */
         }
 
         .video-container video {
@@ -215,13 +214,6 @@
             display: block;
             position: relative;
             z-index: 10;
-            background: #000; /* Black background for video */
-        }
-
-        /* Initially hide video until poster is clicked */
-        .video-container:not(.playing) video {
-            opacity: 0;
-            pointer-events: none;
         }
 
         /* Custom Video Poster/Cover */
@@ -230,7 +222,7 @@
             top: 1.5rem;
             left: 1.5rem;
             right: 1.5rem;
-            height: 400px; /* Fixed height for poster */
+            bottom: calc(1.5rem + 60px); /* Account for video info below */
             background: linear-gradient(135deg, 
                 rgba(79, 70, 229, 0.9) 0%, 
                 rgba(6, 182, 212, 0.8) 50%, 
@@ -244,7 +236,7 @@
             cursor: pointer;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            z-index: 20; /* Higher than video */
+            z-index: 15;
         }
 
         .video-poster::before {
@@ -961,19 +953,13 @@ npm run build</pre>
             const poster = document.getElementById('videoPoster');
             const container = document.getElementById('videoContainer');
             
-            // Hide poster with animation
             poster.style.opacity = '0';
             poster.style.transform = 'scale(0.95)';
             
             setTimeout(() => {
                 poster.style.display = 'none';
                 container.classList.add('playing');
-                
-                // Make video visible and load it
-                video.style.opacity = '1';
-                video.style.pointerEvents = 'auto';
-                video.load(); // Load the video
-                video.play(); // Play the video
+                video.play();
             }, 300);
         }
 
