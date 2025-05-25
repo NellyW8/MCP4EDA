@@ -188,7 +188,59 @@
             transform: translateY(-2px);
         }
 
-        /* Stats */
+        /* Demo Video */
+        .demo-video {
+            margin: 3rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover .video-overlay {
+            transform: translateY(0);
+        }
+
+        .video-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .video-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
         .stats {
             display: flex;
             gap: 2rem;
@@ -507,10 +559,20 @@
                         <i class="fab fa-github"></i>
                         Get Started
                     </a>
-                    <a href="https://github.com/NellyW8/mcp-EDA/blob/main/MCP_demo2.mp4" class="btn btn-secondary">
-                        <i class="fas fa-play"></i>
-                        View Demo
-                    </a>
+                </div>
+
+                <div class="demo-video">
+                    <div class="video-container">
+                        <video controls poster="" preload="metadata">
+                            <source src="https://github.com/NellyW8/mcp-EDA/raw/main/MCP_demo2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                            <a href="https://github.com/NellyW8/mcp-EDA/blob/main/MCP_demo2.mp4">View Demo Video</a>
+                        </video>
+                        <div class="video-overlay">
+                            <div class="video-title">MCP-EDA Server Demonstration</div>
+                            <div class="video-subtitle">Verilog synthesis, simulation, and ASIC design flow</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="stats">
