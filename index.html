@@ -215,6 +215,131 @@
             position: relative;
             z-index: 10;
         }
+
+        /* Custom Video Poster/Cover */
+        .video-poster {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: calc(1.5rem + 60px); /* Account for video info below */
+            background: linear-gradient(135deg, 
+                rgba(79, 70, 229, 0.9) 0%, 
+                rgba(6, 182, 212, 0.8) 50%, 
+                rgba(245, 158, 11, 0.7) 100%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            z-index: 15;
+        }
+
+        .video-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.2)"/><path d="M0,10 L20,10 M10,0 L10,20" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .video-poster:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4);
+        }
+
+        .poster-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .poster-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .video-poster:hover .poster-icon {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .play-icon {
+            font-size: 36px;
+            color: white;
+            margin-left: 4px; /* Slight offset for play button centering */
+        }
+
+        .poster-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .poster-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .poster-features {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .poster-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .poster-cta {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: posterPulse 2s infinite;
+        }
+
+        @keyframes posterPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Hide poster when video is played */
+        .video-container video:not([poster]) + .video-poster {
+            display: none;
+        }
+
+        .video-container.playing .video-poster {
+            display: none;
+        }
         .video-info {
             margin-top: 1rem;
             text-align: center;
@@ -560,8 +685,8 @@
                 </div>
 
                 <div class="demo-video">
-                    <div class="video-container">
-                        <video controls preload="auto" width="100%" style="max-width: 100%;">
+                    <div class="video-container" id="videoContainer">
+                        <video controls preload="auto" width="100%" style="max-width: 100%;" id="demoVideo">
                             <source src="https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6" type="video/mp4">
                             Your browser does not support the video tag.
                             <p>
@@ -570,6 +695,25 @@
                                 </a>
                             </p>
                         </video>
+                        
+                        <!-- Fancy Video Cover -->
+                        <div class="video-poster" id="videoPoster" onclick="playVideo()">
+                            <div class="poster-content">
+                                <div class="poster-icon">
+                                    <i class="fas fa-play play-icon"></i>
+                                </div>
+                                <h3 class="poster-title">🚀 MCP-EDA Demo</h3>
+                                <p class="poster-subtitle">
+                                    Watch AI-powered Verilog synthesis, simulation, and complete ASIC design workflows in action
+                                </p>
+                                <div class="poster-features">
+                                    <span class="poster-tag">⚡ Live Synthesis</span>
+                                    <span class="poster-tag">🔬 Simulation</span>
+                                    <span class="poster-tag">🏭 ASIC Flow</span>
+                                </div>
+                                <div class="poster-cta">Click to play demonstration →</div>
+                            </div>
+                        </div>
                         
                         <div class="video-info">
                             <div class="video-title">MCP-EDA Server Demonstration</div>
@@ -802,6 +946,22 @@ npm run build</pre>
         document.querySelectorAll('.feature-card').forEach(card => {
             observer.observe(card);
         });
+
+        // Video poster functionality
+        function playVideo() {
+            const video = document.getElementById('demoVideo');
+            const poster = document.getElementById('videoPoster');
+            const container = document.getElementById('videoContainer');
+            
+            poster.style.opacity = '0';
+            poster.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                poster.style.display = 'none';
+                container.classList.add('playing');
+                video.play();
+            }, 300);
+        }
 
         // Copy to clipboard function
         function copyToClipboard(elementId) {
