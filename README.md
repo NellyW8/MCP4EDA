@@ -19,7 +19,6 @@ https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6
 - **Layout Viewing**: Open GDSII files in KLayout for physical design inspection
 - **Report Analysis**: Read and analyze OpenLane reports for PPA metrics and design quality assessment
 
-
 ## Prerequisites
 
 Before using this MCP server, you need to install the following EDA tools:
@@ -35,20 +34,6 @@ brew install yosys
 ```bash
 sudo apt-get update
 sudo apt-get install yosys
-```
-
-
-## Cite
-```bibtex
-@misc{wang2025mcp4edallmpoweredmodelcontext,
-      title={MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization}, 
-      author={Yiting Wang and Wanghao Ye and Yexiao He and Yiran Chen and Gang Qu and Ang Li},
-      year={2025},
-      eprint={2507.19570},
-      archivePrefix={arXiv},
-      primaryClass={cs.AR},
-      url={https://arxiv.org/abs/2507.19570}, 
-}
 ```
 
 **From Source:**
@@ -473,3 +458,15 @@ For issues and questions:
 
 
 
+## Cite
+```bibtex
+@misc{wang2025mcp4edallmpoweredmodelcontext,
+      title={MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization}, 
+      author={Yiting Wang and Wanghao Ye and Yexiao He and Yiran Chen and Gang Qu and Ang Li},
+      year={2025},
+      eprint={2507.19570},
+      archivePrefix={arXiv},
+      primaryClass={cs.AR},
+      url={https://arxiv.org/abs/2507.19570}, 
+}
+```
