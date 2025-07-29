@@ -3,7 +3,7 @@
 A comprehensive Model Context Protocol (MCP) server that provides Electronic Design Automation (EDA) tools integration for AI assistants like Claude Desktop and Cursor IDE. This server enables AI to perform Verilog synthesis, simulation, ASIC design flows, and waveform analysis through a unified interface.
 
 - **Paper Link**: [MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization](https://arxiv.org/abs/2507.19570)
-
+- [**Our Website**](http://www.agent4eda.com/)
 ## Demo
 
 https://github.com/user-attachments/assets/65d8027e-7366-49b5-8f11-0430c1d1d3d6
